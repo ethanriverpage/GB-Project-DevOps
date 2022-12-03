@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install GBDK-2020
         run: |
-          apt-get update && apt-get install -y gbdk-2020
+          sudo apt-get update && sudo apt-get install -y gbdk-2020
       - name: Build Game Boy ROM
         run: |
           make
