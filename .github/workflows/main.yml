@@ -1,0 +1,15 @@
+name: Build Game Boy ROM
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install GBDK-2020
+        run: |
+          apt-get update && apt-get install -y gbdk-2020
+      - name: Build Game Boy ROM
+        run: |
+          make
