@@ -7,9 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install GBDK-2020
-        run: |
-          sudo apt-get update && sudo apt-get install -y gbdk-2020
       - name: Build Game Boy ROM
         run: |
           make
