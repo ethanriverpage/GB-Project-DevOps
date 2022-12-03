@@ -10,3 +10,14 @@ jobs:
       - name: Build Game Boy ROM
         run: |
           make
+      - name: Commit ID as environment variable
+        run: |
+          echo "::set-env name=COMMIT_ID::$COMMIT_ID"
+      - name: Create release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ env.COMMIT_ID }}
+          release_name: Release "${{ env.COMMIT_ID }}"
+          draft: false
+          prerelease: true
+          assets: obj/GB-Project-DevOps.gb
