@@ -56,4 +56,4 @@ jobs:
         run: |
           mkdir s3 && unzip s3.zip -d ./s3
       - name: Upload to s3
-        run: aws s3 cp ./s3/* s3://gb.ethanriver.page/ --region us-east-2
+        run: aws s3 cp ./s3/ s3://gb.ethanriver.page/ --recursive --region us-east-2
