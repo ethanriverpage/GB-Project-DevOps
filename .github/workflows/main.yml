@@ -16,17 +16,17 @@ jobs:
       - name: Build Game Boy ROM
         run: |
           cd ./gb && make
-      - name: Create release
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest-dev"
-          title: Development Release
-          prerelease: true
-          files: gb/obj/GB-Project-DevOps.gb
+      #- name: Create release
+      #  uses: marvinpinto/action-automatic-releases@latest
+      #  with:
+      #    repo_token: "${{ secrets.GITHUB_TOKEN }}"
+      #    automatic_release_tag: "latest-dev"
+      #    title: Development Release
+      #    prerelease: true
+      #    files: gb/obj/GB-Project-DevOps.gb
       - name: Add ROM to zip
         run: |
-          ls && zip ../s3.zip -i ./gb/obj/GB-Project-DevOps.gb
+          ls && zip ../s3.zip -i gb/obj/GB-Project-DevOps.gb
       - name: Add web code to zip
         run: |
           cd ../ && zip -g ../s3.zip -r .
