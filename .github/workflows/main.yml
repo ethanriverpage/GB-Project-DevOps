@@ -6,10 +6,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout main repo
+        uses: actions/checkout@v2
+        with:
+          path: gb
+      - name: Checkout web repo
+        uses: actions/checkout@v2
+        with:
+          repository: ethanriverpage/GB-Project-WebEmu
+          path: main
       - name: Build Game Boy ROM
         run: |
-          make
+          cd ./gb && make
       - name: Create release
         uses: marvinpinto/action-automatic-releases@latest
         with:
@@ -17,4 +25,4 @@ jobs:
           automatic_release_tag: "latest"
           title: Development Release
           prerelease: true
-          files: obj/GB-Project-DevOps.gb
+          files: gb/obj/GB-Project-DevOps.gb
