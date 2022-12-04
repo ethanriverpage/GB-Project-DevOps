@@ -54,6 +54,6 @@ jobs:
           name: s3
       - name: Unzip files
         run: |
-          unzip s3.zip ./s3
+          mkdir s3 && unzip s3.zip -d ./s3
       - name: Upload to s3
         run: aws s3 cp ./s3/* s3://gb.ethanriver.page/
