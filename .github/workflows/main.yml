@@ -11,10 +11,10 @@ jobs:
         run: |
           make
       - name: Create release
-        uses: actions/create-release@v1
+        uses: marvinpinto/action-automatic-releases@latest
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release "${{ github.ref }}"
-          draft: false
-          prerelease: false
-          assets: obj/GB-Project-DevOps.gb
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          title: Release "${{ github.ref }}"
+          prerelease: true
+          files: obj/GB-Project-DevOps.gb
