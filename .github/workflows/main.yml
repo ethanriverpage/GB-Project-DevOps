@@ -26,7 +26,7 @@ jobs:
       #    files: gb/obj/GB-Project-DevOps.gb
       - name: Add ROM to zip
         run: |
-          cd ./gb/obj && zip ../../s3.zip GB-Project-DevOps.gb
+          cd ./gb/obj && mv GB-Project-DevOps.gb rom.gb && zip ../../s3.zip rom.gb
 
       - name: Add web code to zip
         run: |
