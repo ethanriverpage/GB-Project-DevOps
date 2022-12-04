@@ -30,7 +30,7 @@ jobs:
 
       - name: Add web code to zip
         run: |
-          cd ./main/app && zip -g ../s3.zip -r .
+          cd ./main/app && zip -g ../../s3.zip -r .
       - name: Upload zip as artifact
         uses: actions/upload-artifact@v2
         with:
