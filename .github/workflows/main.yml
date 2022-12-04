@@ -24,3 +24,14 @@ jobs:
           title: Development Release
           prerelease: true
           files: gb/obj/GB-Project-DevOps.gb
+      - name: Add ROM to zip
+        run: |
+          zip -r9 ../s3.zip ./obj/GB-Project-DevOps.gb
+      - name: Add web code to zip
+        run: |
+          cd ../ && zip -g ../s3.zip -r .
+      - name: Upload zip as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: s3
+          path: s3.zip
