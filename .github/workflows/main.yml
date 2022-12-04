@@ -57,3 +57,7 @@ jobs:
           mkdir s3 && unzip s3.zip -d ./s3
       - name: Upload to s3
         run: aws s3 cp ./s3/ s3://gb.ethanriver.page/ --recursive --region us-east-2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
