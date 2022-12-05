@@ -20,7 +20,7 @@ void main()
         hUGE_init(&song);
         add_VBL(hUGE_dosound);
     }
-
+    // What?
     while (1)
     {
         wait_vbl_done();
