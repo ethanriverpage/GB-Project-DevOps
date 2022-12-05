@@ -1,13 +1,14 @@
 #include <gb/gb.h>
 #include <stdio.h>
-#include "hUGEDriver.h"
+#include "include/hUGEDriver.h"
 
 void main()
 {
+    extern const hUGESong_t song;
+    hUGE_init(&song);
     while (1)
     {
-        extern const hUGESong_t song;
-        hUGE_init(&song);
+        hUGE_dosound;
         printf("Hello World");
     }
 }
