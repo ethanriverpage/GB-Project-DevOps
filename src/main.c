@@ -18,7 +18,7 @@ void main()
     __critical
     {
         hUGE_init(&song);
-        add_VBL(hUGE_dosound);
+        hUGE_dosound();
     }
     // What?
     while (1)
