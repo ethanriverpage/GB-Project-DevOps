@@ -14,11 +14,8 @@ jobs:
           repository: ethanriverpage/GB-Project-WebEmu
           path: main
       - name: Build Game Boy ROM
-        uses: wujood/gbdk-2020-github-builder@1.0.7
-        with:
-          subdirectory: ./gb
-          output-name: rom
-          source: main.c
+        run: |
+          cd ./gb && make
       #- name: Create release
       #  uses: marvinpinto/action-automatic-releases@latest
       #  with:
